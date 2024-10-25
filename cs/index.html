@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/32c2836d5c.js" crossorigin="anonymous"></script>
+  
+  <!-- Název stránky a ikona -->
+  <title>michaljef.xyz</title>
+  <link rel="icon" href="icon.png" type="image/png">
+</head>
+<body>
+  <header class="navbar">
+    <img class="navbar-logo" src="../icon.png" alt="Logo">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav class="navbar-links">
+      <a href="/cs/search/" class="navbar-link">Vyhledávač</a>
+      <a href="/cs/search/tor" class="navbar-link">Tor</a>
+      <a href="/cs/shitpost/" class="navbar-link">Shitpost</a>
+      <a href="/cs/my-work/" class="navbar-link">Mé Výtvory</a>
+      <a href="/cs/photos/" class="navbar-link">Fotoalbum</a>
+      <a href="/cs/about-me/" class="navbar-link">O mně</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="text">
+      michaljef.xyz je jednoduchá html stránka, která obsahuje mé hlavní výtvory, nebo základní nástroje. Také to zkouší mé znalosti html. Neručím za zneužití informací z tohoto webu nebo wikipedia stránky.
+    </div>
+    <div class="button-container">
+      <a href="/cs/" class="button"><i class="fa-solid fa-rotate-right"></i> Reload</a>
+      <a href="/about-me/" class="button"><i class="fa-solid fa-address-card"></i> O mně</a>
+    </div>
+    <div class="social">
+      <a href="https://www.instagram.com/michaljef/" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i> @michaljef</a>
+      <a href="https://www.youtube.com/@michaljef/" class="social-link" target="_blank"><i class="fa-brands fa-youtube"></i> @michaljef</a>
+      <a href="https://www.tiktok.com/@michaljef.xyz" class="social-link" target="_blank"><i class="fa-brands fa-tiktok"></i> @michaljef.xyz</a>
+    </div>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const navbarLinks = document.querySelector('.navbar-links');
+      navbarLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

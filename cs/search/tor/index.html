@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generátor náhodných torů</title>
+  <link rel="icon" href="../../icon.png" type="image/png">
+  <script src="https://kit.fontawesome.com/32c2836d5c.js" crossorigin="anonymous"></script>
+  <h1>Generátor náhodných torů funguje cestou generovat náhodná slova končící na 'tor'.<h1>
+      <h2>Tento generátor má vlastní styl css a nijak nesouvisí se stránkou https://michaljef.xyz/ !<h2>
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+            
+            body {
+              font-family: Ubuntu, sans-serif;
+              text-align: center;
+              background-color: #181818;
+              color: #fff;
+              margin: 0;
+              padding: 20px;
+              position: relative;
+            }
+
+            .date-time-container {
+              position: fixed;
+              bottom: 10px;
+              right: 10px;
+              font-size: 32px;
+              text-align: right;
+            }
+
+            .time {
+              font-size: 1.5em;
+              font-weight: normal;
+            }
+
+            .date {
+              font-weight: normal;
+            }
+
+
+            @media only screen and (max-width: 600px) {
+              .hide-on-phone {
+                display: none;
+              }
+            }
+
+            .button-container {
+              display: flex;
+              justify-content: flex-end;
+              align-items: flex-end;
+              position: fixed;
+              bottom: 10px;
+              left: 10px;
+            }
+
+            .searcher-button,
+            .generator-button {
+              position: fixed;
+              bottom: 10px;
+              left: 10px;
+              padding: 15px 20px;
+              text-decoration: none;
+              background-color: #4CAF50;
+              color: #fff;
+              border-radius: 5px;
+              font-size: 16px;
+              transition: background-color 0.3s;
+              cursor: pointer;
+            }
+
+            .searcher-button i,
+            .generator-button i {
+              margin-right: 5px;
+            }
+
+            .searcher-button:hover,
+            .generator-button:hover {
+              background-color: #45a049;
+            }
+
+            .word-generator {
+              margin-top: 40px;
+              font-size: 24px;
+            }
+
+            .generate-button {
+              padding: 10px 20px;
+              text-decoration: none;
+              background-color: #4CAF50;
+              color: #fff;
+              border-radius: 5px;
+              font-size: 16px;
+              transition: background-color 0.3s;
+              cursor: pointer;
+              margin-top: 10px;
+            }
+
+            .generate-button:hover {
+              background-color: #45a049;
+            }
+          </style>
+</head>
+
+<body>
+  <div class="date-time-container hide-on-phone" id="dateTimeContainer">
+    <div class="time" id="time"></div>
+    <div class="date" id="date"></div>
+  </div>
+
+  <div class="button-container">
+    <a href="/cs/search/" class="searcher-button">
+      <i class="fa-solid fa-angle-left"></i> Vyhledávač
+    </a>
+  </div>
+
+  <div class="word-generator" id="wordGeneratorContainer">
+    <button class="generate-button" onclick="generateRandomWord()"><i class="fa-solid fa-shuffle"></i> Vygenerovat
+      náhodný tor</button>
+    <div id="randomWord"></div>
+  </div>
+
+  <script>
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    function updateDateTime() {
+      const timeContainer = document.getElementById('time');
+      const dateContainer = document.getElementById('date');
+      const now = new Date();
+
+      const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+      const czechDate = now.toLocaleDateString('cs-CZ', options);
+      const czechTime = now.toLocaleTimeString('cs-CZ', {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+
+      timeContainer.innerHTML = czechTime;
+      dateContainer.innerHTML = czechDate;
+    }
+
+    function generateRandomWord() {
+      const randomWordElement = document.getElementById('randomWord');
+      const czechWords = ['illustrator', 'stator', 'graderelevator', 'zetor', 'inhibitor', 'editor', 'auditor', 'emitor', 'monitor', 'automonitor', 'repetitor', 'akvizitor', 'inkvizitor', 'depozitor', 'dekompozitor', 'redaktor', 'šéfredaktor', 'reaktor', 'bioreaktor', 'faktor', 'selfaktor', 'geofaktor', 'biofaktor', 'kofaktor', 'impaktor', 'kompaktor', 'refraktor', 'traktor', 'atraktor', 'malotraktor', 'efektor', 'ejektor', 'injektor', 'projektor', 'diaprojektor', 'dataprojektor', 'lektor', 'selektor', 'deflektor', 'reflektor', 'kolektor', 'konektor', 'inspektor', 'prospektor', 'rektor', 'erektor', 'direktor', 'korektor', 'autokorektor', 'prorektor', 'sektor', 'subsektor', 'fotosektor', 'detektor', 'protektor', 'vektor', 'bivektor', 'konvektor', 'prediktor', 'viktor', 'funktor', 'doktor', 'reduktor', 'induktor', 'konduktor', 'reproduktor', 'transduktor', 'destruktor', 'instruktor', 'konstruktor', 'kantor', 'mentor', 'fermentor', 'motor', 'hydromotor', 'promotor', 'elektromotor', 'servomotor', 'rotor', 'receptor', 'akceptor', 'deskriptor', 'redemptor', 'invertor', 'konvertor', 'pastor', 'gestor', 'nestor', 'investor', 'polyhistor', 'termistor', 'varistor', 'tyristor', 'transistor', 'rezistor', 'fotorezistor', 'tranzistor', 'prostor', 'předprostor', 'podprostor', 'meziprostor', 'poloprostor', 'časoprostor', 'kyberprostor', 'hyperprostor', 'čtyřprostor', 'autor', 'spoluautor', 'distributor', 'redistributor', 'exekutor', 'tutor', 'inkubátor', 'predátor', 'validátor', 'likvidátor', 'vědátor', 'fátor', 'propagátor', 'aligátor', 'navigátor', 'emulgátor', 'iniciátor', 'gladiátor', 'radiátor', 'mediátor', 'plagiátor', 'variátor', 'bionidikátor', 'indikátor', 'bioindikátor', 'specifikátor', 'modifikátor', 'kvalifikátor', 'klasifikátor', 'kvantifikátor', 'identifikátor', 'plastifikátor', 'falzifikátor', 'aplikátor', 'mikroaplikátor', 'multiplikátor', 'demultiplikátor', 'komunikátor', 'transfokátor', 'lokátor', 'alokátor', 'blokátor', 'radiolokátor', 'edukátor', 'inhalátor', 'eskalátor', 'instalátor', 'tabelátor', 'korelátor', 'deflátor', 'oscilátor', 'anihilátor', 'epilátor', 'depilátor', 'kompilátor', 'předkompilátor', 'dekompilátor', 'ventilátor', 'destilátor', 'interpolátor', 'isolátor', 'izolátor', 'translátor', 'retranslátor', 'tabulátor', 'modulátor', 'demodulátor', 'imunomodulátor', 'koagulátor', 'regulátor', 'ejakulátor', 'kalkulátor', 'emulátor', 'simulátor', 'stimulátor', 'biostimulátor', 'kardiostimulátor', 'akumulátor', 'anulátor', 'manipulátor', 'programátor', 'animátor', 'primátor', 'monochromátor', 'deformátor', 'reformátor', 'informátor', 'dezinformátor', 'transformátor', 'autotransformátor', 'sumátor', 'inscenátor', 'senátor', 'kombinátor', 'koordinátor', 'examinátor', 'inseminátor', 'diskriminátor', 'terminátor', 'rezonátor', 'gubernátor', 'alternátor', 'tornátor', 'synátor', 'uzurpátor', 'deklarátor', 'preparátor', 'separátor', 'komparátor', 'kalibrátor', 'vibrátor', 'multivibrátor', 'kvadrátor', 'moderátor', 'akcelerátor', 'generátor', 'degenerátor', 'turbogenerátor', 'parogenerátor', 'hydrogenerátor', 'motorgenerátor', 'imperátor', 'operátor', 'rekuperátor', 'iterátor', 'integrátor', 'respirátor', 'inspirátor', 'penetrátor', 'koncentrátor', 'registrátor', 'administrátor', 'demonstrátor', 'ilustrátor', 'restaurátor', 'karburátor', 'konfigurátor', 'kurátor', 'prokurátor', 'dilatátor', 'recitátor', 'licitátor', 'agitátor', 'facilitátor', 'imitátor', 'diktátor', 'orientátor', 'implementátor', 'experimentátor', 'komentátor', 'dokumentátor', 'anotátor', 'degustátor', 'komutátor', 'skrutátor', 'valuátor', 'atenuátor', 'exkavátor', 'aktivátor', 'kultivátor', 'ekvátor', 'novátor', 'renovátor', 'inovátor', 'rezervátor', 'syntezátor', 'realizátor', 'inicializátor', 'normalizátor', 'racionalizátor', 'moralizátor', 'digitalizátor', 'totalizátor', 'stabilizátor', 'sterilizátor', 'algoritmizátor', 'organizátor', 'mechanizátor', 'ionizátor', 'kolonizátor', 'synchronizátor', 'ozonizátor', 'modernizátor', 'polarizátor', 'depolarizátor', 'regularizátor', 'popularizátor', 'rematizátor', 'klimatizátor', 'privatizátor', 'improvizátor', 'kondenzátor', 'kompenzátor', 'dialyzátor', 'analyzátor', 'katalyzátor', 'rétor', 'útor', 'štor'];
+      const randomIndex = Math.floor(Math.random() * czechWords.length);
+      const randomWord = czechWords[randomIndex];
+      randomWordElement.innerHTML = randomWord;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+/* Import fontu Ubuntu */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Basic Styles */
+:root {
+    --background-color: #181818; 
+    --text-color: #ffffff; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#content {
+    text-align: center;
+}
+
+/* Light Mode Styles */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #E1D9D1;
+        --text-color: #000000;
+    }
+}
