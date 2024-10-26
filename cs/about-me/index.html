@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cs">
+<script src="https://kit.fontawesome.com/32c2836d5c.js" crossorigin="anonymous"></script>
+<head>
+  <link rel="stylesheet" href="styles.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O mně</title>
+  <link rel="icon" href="../../icon.png" type="image/png">
+</head>
+
+<body>
+  <div class="navbar">
+    <img class="navbar-logo" src="../../icon.png" alt="Logo">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="navbar-links">
+      <a href="/cs/" class="navbar-link">Domů</a>
+      <a href="/cs/search/" class="navbar-link">Vyhledávač</a>
+      <a href="/cs/search/tor" class="navbar-link">Tor</a>
+      <a href="/cs/shitpost/" class="navbar-link">Shitpost</a>
+      <a href="/cs/my-work/" class="navbar-link">Mé Výtvory</a>
+      <a href="/cs/about-me/" class="navbar-link">O mně</a>
+      <a href="../settings/" class="navbar-link"><i class="fa-solid fa-gear"></i></a>
+    </div>
+  </div>
+
+  <div id="simple-text-container">
+    <h1>AHOJ!</h1>
+    <div>Mé jméno je Michal. Ale preferuju přezdívku michaljef.</div>
+    <h2>Tak teď tedy něco reálně o mě.</h2>
+    <div>Chodím na Střední Odborné Učiliště Elektrotechnické v Plzni. Chodím zde na Maturitní obor, což je level-up. Proč jsem si vybral SOUEPL? Protože nabízejí praktické vyučování, což je za mě podstatný. Jinak je to nejvíc random škola, ale jde to..</div>
+    <div>Zajímám se především o focení přírodní krásy (nejvíce Šumava). To tedy znamená, že musím mít techniku na focení, že? Moje nástroje jsou Canon EOS 2000D a Xiaomi Redmi Note 12 Pro+. No není to nejlepší co se dá sehnat, ale né každý má tu možnost se vůbec k takové technice dostat.</div>
+    <h2>Tak teď nějaké moje plány:</h2>
+    <div>1) Dodělat tuhle stránku</div>
+    <div>2) Dodělat školu (lmao)</div>
+  </div>
+
+  <div id="contact">
+    <h2 class="contact-title">Kontakt</h2>
+    <a href="mailto:me@michaljef.xyz" class="contact-button">Napiš mi na email <i class="fa-solid fa-up-right-from-square"></i></a>
+    <button class="contact-button" onclick="copyToClipboard('me@michaljef.xyz')">Zkopíruj email <i class="fa-solid fa-copy"></i></button>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      alert('Email copied to clipboard: ' + text);
+    }
+
+    function toggleMenu() {
+      const navbarLinks = document.querySelector('.navbar-links');
+      navbarLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

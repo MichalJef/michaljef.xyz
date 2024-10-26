@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search</title>
+  <link rel="icon" href="../icon.png" type="image/png">
+  <script src="https://kit.fontawesome.com/32c2836d5c.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    
+    body {
+      font-family: Ubuntu, sans-serif;
+      text-align: center;
+      background-color: #181818;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    .search-container {
+      margin-top: 20px;
+    }
+
+    .search-bar {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      width: 60%;
+      box-sizing: border-box;
+      background-color: #333;
+      color: #fff;
+    }
+
+    .search-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .search-button i {
+      margin-right: 5px;
+    }
+
+    .search-button:hover {
+      background-color: #45a049;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .link {
+      margin: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .link i {
+      margin-right: 5px;
+    }
+
+    .link:hover {
+      background-color: #45a049;
+    }
+
+    .date-time-container {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 32px;
+      text-align: right;
+    }
+
+    .time {
+      font-size: 1.5em;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .hide-on-phone {
+        display: none;
+      }
+    }
+
+    .generator-button {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      padding: 15px 20px;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .generator-button i {
+      margin-right: 5px;
+    }
+
+    .generator-button:hover {
+      background-color: #45a049;
+    }
+
+    .home-button {
+      position: fixed;
+      bottom: 90px;
+      left: 10px;
+      padding: 15px 20px;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .home-button i {
+      margin-right: 5px;
+    }
+
+    .home-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Vyhledávač</h1>
+  <h2>Tento vyhledávač má vlastní styl css a nijak nesouvisí se stránkou https://michaljef.xyz/ !</h2>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Enter text or domain" autofocus>
+    <button onclick="performSearch()" class="search-button"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+  </div>
+
+  <div class="links-container">
+    <a href="https://duckduckgo.com" class="link" target="_blank"><img src="duckduckgo.png" alt="DuckDUckGO" style="width: 16px; height: 16px;"> DuckDuckGO</a>
+    <a href="https://google.com" class="link" target="_blank"><i class="fa-brands fa-google"></i> Google</a>
+    <a href="https://youtube.com" class="link" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    <a href="https://music.youtube.com" class="link" target="_blank"><i class="fa-solid fa-music"></i> YouTube Music</a>
+    <a href="https://gmail.com" class="link" target="_blank"><i class="fa-solid fa-envelope"></i> Gmail</a>
+    <a href="https://drive.google.com" class="link" target="_blank"><i class="fa-brands fa-google-drive"></i> Drive</a>
+    <a href="https://pmdp.pages.dev" class="link" target="_blank"><i class="fa-solid fa-train-tram"></i> Vozidla</a>
+    <a href="https://aternos.org/server" class="link" target="_blank"><i class="fa-solid fa-server"></i> Aternos</a>
+    <a href="https://en.mapy.cz/" class="link" target="_blank"><img src="mapy.png" alt="Mapy.cz" style="width: 16px; height: 16px;"> Mapy.cz</a>
+  </div>
+
+  <div class="date-time-container hide-on-phone" id="dateTimeContainer">
+    <div class="time" id="time"></div>
+    <div class="date" id="date"></div>
+  </div>
+
+  <a href="/cs/" class="home-button">
+    <i class="fa-solid fa-angle-left"></i> Zpět domů
+  </a>
+
+  <a href="/cs/search/tor/" class="generator-button">
+    <i class="fa-solid fa-shuffle"></i> Generátor náhodných torů
+  </a>
+
+  <script>
+    function performSearch() {
+      const searchInput = document.getElementById('searchInput').value.trim();
+
+      if (isValidUrl(searchInput)) {
+        window.location.href = normalizeUrl(searchInput);
+      } else {
+        window.location.href = 'https://duckduckgo.com/?q=' + encodeURIComponent(searchInput);
+      }
+    }
+
+    function isValidUrl(url) {
+      const urlPattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+      const domainPattern = /^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$/;
+      return urlPattern.test(url) || domainPattern.test(url);
+    }
+
+    function normalizeUrl(url) {
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+
+      return url;
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', function (event) {
+      if (event.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    function updateDateTime() {
+      const timeContainer = document.getElementById('time');
+      const dateContainer = document.getElementById('date');
+      const now = new Date();
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const czechDate = now.toLocaleDateString('cs-CZ', options);
+      const czechTime = now.toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+      timeContainer.innerHTML = czechTime;
+      dateContainer.innerHTML = czechDate;
+    }
+  </script>
+</body>
+
+</html>

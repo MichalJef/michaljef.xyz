@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cs">
+<script src="https://kit.fontawesome.com/32c2836d5c.js" crossorigin="anonymous"></script>
+<head>
+  <link rel="stylesheet" href="styles.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O mně</title>
+  <link rel="icon" href="../../icon.png" type="image/png">
+</head>
+
+<body>
+  <div class="navbar">
+    <img class="navbar-logo" src="../../icon.png" alt="Logo">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="navbar-links">
+      <a href="/en/" class="navbar-link">Home</a>
+      <a href="/en/my-work/" class="navbar-link">My work</a>
+      <a href="/en/about-me/" class="navbar-link">About me</a>
+      <a href="../settings/" class="navbar-link"><i class="fa-solid fa-gear"></i></a>
+    </div>
+  </div>
+
+  <div id="simple-text-container">
+    <h1>HI!</h1>
+    <div>My name is Michal. But I prefer the nickname michaljef.</div>
+    <h2>So now something real about me.</h2>
+    <div>I attend the Secondary Vocational School of Electrical Engineering in Pilsen. I'm taking the Matura course here, which is a level-up. Why did I choose SVSEEPL (SOUEPL)? Because they offer practical teaching, which is essential for me. Otherwise it's the most random school, but it's good...</div>
+    <div>I'm mainly interested in photographing natural beauty (mostly Bohemian forest). That means I have to have the equipment to take pictures, right? My tools are Canon EOS 2000D (EOS Rebel T7; EOS Kiss X90) and Xiaomi Redmi Note 12 Pro+. Well, it's not the best you can get, but not everyone has the opportunity to get such technology at all.</div>
+    <h2>So now some of my plans:</h2>
+    <div>1) Finish this site</div>
+    <div>2) Finish school (lmao)</div>
+  </div>
+
+  <div id="contact">
+    <h2 class="contact-title">Contact</h2>
+    <a href="mailto:me@michaljef.xyz" class="contact-button">Write me an email <i class="fa-solid fa-up-right-from-square"></i></a>
+    <button class="contact-button" onclick="copyToClipboard('me@michaljef.xyz')">Copy email <i class="fa-solid fa-copy"></i></button>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      alert('Email copied to clipboard: ' + text);
+    }
+
+    function toggleMenu() {
+      const navbarLinks = document.querySelector('.navbar-links');
+      navbarLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

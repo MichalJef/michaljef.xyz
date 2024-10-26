@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My work</title>
+    <link rel="icon" href="../../icon.png" type="image/png">
+</head>
+
+<body>
+    <div class="navbar">
+        <img class="navbar-logo" src="/icon.png" alt="Logo">
+        <div class="navbar-links" id="navbarLinks">
+            <a href="/en/" class="navbar-link">Home</a>
+            <a href="/en/my-work/" class="navbar-link">My work</a>
+            <a href="/en/about-me/" class="navbar-link">About me</a>
+            <a href="../../settings/" class="navbar-link"><i class="fa-solid fa-gear"></i></a>
+        </div>
+        <button class="navbar-toggle" id="navbarToggle">&#9776;</button>
+    </div>
+
+    <div class="content">
+        <div class="text">
+            On this page you will find various creations and projects I have worked on. Click on the buttons below for more information.
+        </div>
+        <div class="links-container">
+            <div class="link-row">
+                <a href="https://github.com/MichalJef/Ubuntu-mono-Dark" class="link" target="_blank"><i
+                        class="fa-brands fa-github"></i> Discord Theme</a>
+                <div class="description">Dark theme for Discord with Ubuntu-Mono font.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/32c2836d5c.js" crossorigin="anonymous"></script>
+    <script>
+        const toggleButton = document.getElementById('navbarToggle');
+        const navbarLinks = document.getElementById('navbarLinks');
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

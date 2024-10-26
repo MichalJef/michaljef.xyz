@@ -1,0 +1,52 @@
+strong {
+    font-weight: bold; 
+    color: #fff; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive;
+    /* overflow: hidden; */ /* Tuto řádku zakomentujte nebo odstraňte */
+    animation: gradientChange 10s infinite linear; /* Animace barevného přechodu */
+}
+
+.shitpost-container {
+    padding: 20px;
+    text-align: center;
+    transform: rotate(var(--random-rotation));
+    position: relative;
+    overflow: hidden;
+    background: none; /* Odstranění pozadí */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: transparent; /* Transparentní pozadí obrázku */
+    transform: rotate(${random() * 10 - 5}deg); /* Náhodná rotace */
+}
+
+p {
+    font-size: 18px;
+    color: #fff;
+}
+
+@keyframes gradientChange {
+    0% {
+        background: linear-gradient(45deg, #ff0000, #ff9900);
+    }
+    25% {
+        background: linear-gradient(45deg, #ff9900, #33cc33);
+    }
+    50% {
+        background: linear-gradient(45deg, #33cc33, #3366ff);
+    }
+    75% {
+        background: linear-gradient(45deg, #3366ff, #ff00ff);
+    }
+    100% {
+        background: linear-gradient(45deg, #ff00ff, #ff0000);
+    }
+}

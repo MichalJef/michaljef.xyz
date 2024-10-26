@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Language Redirect</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Získání jazyka ze localStorage
+            const userLanguage = localStorage.getItem("language");
+            if (userLanguage) {
+                // Přesměrování na jazykovou verzi podle výběru uživatele
+                window.location.href = `/${userLanguage}/`;
+            } else {
+                // Zjistit systémově nastavený jazyk
+                const defaultLanguage = navigator.language || navigator.userLanguage; // např. "cs-CZ"
+                const langCode = defaultLanguage.split('-')[0]; // Vytáhnout pouze kód jazyka, např. "cs"
+                window.location.href = `/${langCode}/`;
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

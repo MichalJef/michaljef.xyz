@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Language Selection</title>
+    <link rel="icon" href="../icon.png" type="image/png">
+    <script>
+        function setLanguage(lang) {
+            localStorage.setItem("language", lang); // Uložení vybraného jazyka do localStorage
+            window.location.href = `/${lang}/`; // Přesměrování na vybranou jazykovou verzi
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Which language do you want to continue in?</h2>
+        <h2>Ve kterém jazyce chceš dále pokračovat?</h2>
+        <div class="flags">
+            <a href="javascript:void(0);" class="flag-button" onclick="setLanguage('en');">
+                <img src="../en.png" alt="English Flag">
+            </a>
+            <a href="javascript:void(0);" class="flag-button" onclick="setLanguage('cs');">
+                <img src="../cs.png" alt="Czech Flag">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
