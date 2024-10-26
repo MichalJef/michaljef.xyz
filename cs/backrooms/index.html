@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #181818; /* Pozadí 181818 pro neoslepnutí pokud se obrázek načítá, nebo nenačte */
+            background-color: #181818;
             background-image: url('bg.png'); 
             background-size: cover;
             background-repeat: no-repeat;
@@ -22,10 +22,20 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             font-size: 18px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .navbar img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .navbar .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
         }
         .navbar a, .dropdown-btn {
-            float: left;
-            display: block;
             color: #E0E0E0;
             text-align: center;
             padding: 10px 10px;
@@ -105,42 +115,43 @@
     </script>
 </head>
 <body>
-    <div class="navbar"> 
-        <!-- #stránka pro snadné testování, nahradit cestou! -->
-        <a href="#home">Domů</a>
-        <a href="#levely" class="with-dropdown">Levely</a>
-        <a href="javascript:void(0);" class="dropdown-btn" onclick="toggleDropdown('levelDropdown')"></a>
-        <a href="#entity" class="with-dropdown">Entity</a>
-        <a href="javascript:void(0);" class="dropdown-btn" onclick="toggleDropdown('entityDropdown')"></a>
-        <a href="#itemy">Itemy</a>
-        <a href="#obtiznost">Obtížnost</a>
-        <a href="#kolonie" class="with-dropdown">Kolonie</a>
-        <a href="javascript:void(0);" class="dropdown-btn" onclick="toggleDropdown('kolonieDropdown')"></a>
-        <a href="#pasti">Pasti</a>
+    <div class="navbar">
+        <a href="#home">
+            <img src="icon.png" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="#home">Domů</a>
+            <a href="#levely" class="with-dropdown">Levely</a>
+            <a href="javascript:void(0);" class="dropdown-btn" onclick="toggleDropdown('levelDropdown')"></a>
+            <a href="#entity" class="with-dropdown">Entity</a>
+            <a href="javascript:void(0);" class="dropdown-btn" onclick="toggleDropdown('entityDropdown')"></a>
+            <a href="#itemy">Itemy</a>
+            <a href="#obtiznost">Obtížnost</a>
+            <a href="#kolonie" class="with-dropdown">Kolonie</a>
+            <a href="javascript:void(0);" class="dropdown-btn" onclick="toggleDropdown('kolonieDropdown')"></a>
+            <a href="#pasti">Pasti</a>
+        </div>
     </div>
 
     <div id="levelDropdown" class="dropdown-content">
         <a href="#level0">Level 0</a>
         <a href="#level1">Level 1</a>
         <a href="#level2">Level 2</a>
-        <!-- Další úrovně -->
     </div>
     <div id="entityDropdown" class="dropdown-content">
         <a href="#entita1">Entita 1</a>
         <a href="#entita2">Entita 2</a>
-        <!-- Další entity -->
     </div>
     <div id="kolonieDropdown" class="dropdown-content">
         <a href="#kolonie1">Kolonie 1</a>
         <a href="#kolonie2">Kolonie 2</a>
-        <!-- Další kolonie -->
     </div>
 
     <div class="container">
         <div class="content">
             <h1>Fanmade Backrooms Wiki</h1>
             <p>Vítejte na neoficiální a fanmade wiki o backrooms</p>
-            <h2>Vysvětlivky:</h2> <!-- Zkontrolovat kompatibilitu s emoji! -->
+            <h2>Vysvětlivky:</h2>
             <p>:( = nerozpracováno</p>
             <p>:) = pracuji na tom</p>
             <h2>Co jsou to backrooms?</h2>
